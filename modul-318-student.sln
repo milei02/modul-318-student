@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{DB5353C6-1EF
 		..\..\Schindler\5_Schule\ÜK 318\Project\Dokumentation Projekt_318.docx = ..\..\Schindler\5_Schule\ÜK 318\Project\Dokumentation Projekt_318.docx
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myOEV_App", "myOEV_App\myOEV_App.csproj", "{096F12C7-8388-40DC-A5EB-53B9ABA4EFB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{959C6E54-5B1C-40F5-938A-C57B17451421}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{959C6E54-5B1C-40F5-938A-C57B17451421}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{959C6E54-5B1C-40F5-938A-C57B17451421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{096F12C7-8388-40DC-A5EB-53B9ABA4EFB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{096F12C7-8388-40DC-A5EB-53B9ABA4EFB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{096F12C7-8388-40DC-A5EB-53B9ABA4EFB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{096F12C7-8388-40DC-A5EB-53B9ABA4EFB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
