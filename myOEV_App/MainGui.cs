@@ -33,8 +33,7 @@ namespace myOEV_App
             //textbox als sender
            TextBox akttxt = new TextBox();
             //Autocomplete mit Funtktion
-            akttxt.AutoCompleteCustomSource = v.GetStation(txt_Abfahrt.Text); 
-        }
+            akttxt.AutoCompleteCustomSource = v.GetStation(txt_Abfahrt.Text);     }
 
     }
 }

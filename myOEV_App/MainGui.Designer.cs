@@ -32,9 +32,9 @@
             this.lbl_Abfahrt = new System.Windows.Forms.Label();
             this.lbl_Ankunft = new System.Windows.Forms.Label();
             this.btn_Search = new System.Windows.Forms.Button();
-            this.txt_Abfahrt = new System.Windows.Forms.TextBox();
-            this.txt_Ankunft = new System.Windows.Forms.TextBox();
             this.lst_Fahrplan = new System.Windows.Forms.ListBox();
+            this.cmb_Abfahrt = new System.Windows.Forms.ComboBox();
+            this.cmb_Ankunft = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lbl_Abfahrt
@@ -65,21 +65,6 @@
             this.btn_Search.TabIndex = 2;
             this.btn_Search.UseVisualStyleBackColor = true;
             // 
-            // txt_Abfahrt
-            // 
-            this.txt_Abfahrt.Location = new System.Drawing.Point(16, 68);
-            this.txt_Abfahrt.Name = "txt_Abfahrt";
-            this.txt_Abfahrt.Size = new System.Drawing.Size(212, 26);
-            this.txt_Abfahrt.TabIndex = 3;
-            this.txt_Abfahrt.TextChanged += new System.EventHandler(this.txt_abfahrt_TextChanged);
-            // 
-            // txt_Ankunft
-            // 
-            this.txt_Ankunft.Location = new System.Drawing.Point(332, 68);
-            this.txt_Ankunft.Name = "txt_Ankunft";
-            this.txt_Ankunft.Size = new System.Drawing.Size(212, 26);
-            this.txt_Ankunft.TabIndex = 4;
-            // 
             // lst_Fahrplan
             // 
             this.lst_Fahrplan.FormattingEnabled = true;
@@ -89,15 +74,31 @@
             this.lst_Fahrplan.Size = new System.Drawing.Size(533, 344);
             this.lst_Fahrplan.TabIndex = 5;
             // 
+            // cmb_Abfahrt
+            // 
+            this.cmb_Abfahrt.FormattingEnabled = true;
+            this.cmb_Abfahrt.Location = new System.Drawing.Point(16, 73);
+            this.cmb_Abfahrt.Name = "cmb_Abfahrt";
+            this.cmb_Abfahrt.Size = new System.Drawing.Size(215, 28);
+            this.cmb_Abfahrt.TabIndex = 6;
+            // 
+            // cmb_Ankunft
+            // 
+            this.cmb_Ankunft.FormattingEnabled = true;
+            this.cmb_Ankunft.Location = new System.Drawing.Point(332, 73);
+            this.cmb_Ankunft.Name = "cmb_Ankunft";
+            this.cmb_Ankunft.Size = new System.Drawing.Size(215, 28);
+            this.cmb_Ankunft.TabIndex = 7;
+            // 
             // MainGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(887, 503);
+            this.Controls.Add(this.cmb_Ankunft);
+            this.Controls.Add(this.cmb_Abfahrt);
             this.Controls.Add(this.lst_Fahrplan);
-            this.Controls.Add(this.txt_Ankunft);
-            this.Controls.Add(this.txt_Abfahrt);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.lbl_Ankunft);
             this.Controls.Add(this.lbl_Abfahrt);
@@ -117,9 +118,9 @@
         private System.Windows.Forms.Label lbl_Abfahrt;
         private System.Windows.Forms.Label lbl_Ankunft;
         private System.Windows.Forms.Button btn_Search;
-        private System.Windows.Forms.TextBox txt_Abfahrt;
-        private System.Windows.Forms.TextBox txt_Ankunft;
         private System.Windows.Forms.ListBox lst_Fahrplan;
+        private System.Windows.Forms.ComboBox cmb_Abfahrt;
+        private System.Windows.Forms.ComboBox cmb_Ankunft;
     }
 }
 
