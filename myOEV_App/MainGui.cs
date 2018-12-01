@@ -22,18 +22,11 @@ namespace myOEV_App
         private void MainGui_Load(object sender, EventArgs e)
         {
             AutoCompleteStringCollection allowedTypes = new AutoCompleteStringCollection();
-            txt_Abfahrt.AutoCompleteCustomSource = allowedTypes;
-            txt_Abfahrt.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txt_Abfahrt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+           
 
         }
 
-        private void txt_abfahrt_TextChanged(object sender, EventArgs e)
-        {
-            //textbox als sender
-           TextBox akttxt = new TextBox();
-            //Autocomplete mit Funtktion
-            akttxt.AutoCompleteCustomSource = v.GetStation(txt_Abfahrt.Text);     }
+       
 
     }
 }
