@@ -11,19 +11,15 @@ namespace myOEV_App
 {
     class Vorschlag
     {
-        public Transport t = new Transport();
-        public AutoCompleteStringCollection GetStation(string query)
+       
+        /*Create a List of with the Stations an search with a value named input*/
+        public List<Station> Searchstation (string input)
         {
-            AutoCompleteStringCollection acsc = new AutoCompleteStringCollection();
-            Stations stations = new Stations();
-            stations = t.GetStations(query);
-
-            foreach (Station s in stations.StationList)
-            {
-                acsc.Add(s.Name);               
-
-            }
-            return acsc;
+            ITransport transport = new Transport();
+            return transport.GetStations(input).StationList;
         }
+
+
+        
     }
 }

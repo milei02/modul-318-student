@@ -22,7 +22,9 @@ namespace myOEV_App
         private void MainGui_Load(object sender, EventArgs e)
         {
             AutoCompleteStringCollection allowedTypes = new AutoCompleteStringCollection();
-           
+            tabPage1.Text = "Fahrplan";
+            tabPage2.Text = "Abfahrtstafel";
+            tabPage2.BackColor = Color.LightYellow;
 
         }
 
