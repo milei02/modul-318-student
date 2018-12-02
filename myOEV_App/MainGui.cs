@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SwissTransport;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,7 +29,36 @@ namespace myOEV_App
 
         }
 
-       
+        private void cmb_Abfahrt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter)
+                return;
 
+            var input = cmb_Abfahrt.Text;
+            Vorschlag vorschlag = new Vorschlag();
+            List<Station> stations = vorschlag.Searchstation((string)input);
+
+            foreach(Station element in stations)
+            {
+                cmb_Abfahrt.Items.Add(element.Name);
+            }
+
+            
+        }
+
+        private void cmb_Ankunft_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter)
+                return;
+
+            var input = cmb_Ankunft.Text;
+            Vorschlag vorschlag = new Vorschlag();
+            List<Station> stations = vorschlag.Searchstation((string)input);
+
+            foreach(Station element in stations)
+            {
+                cmb_Ankunft.Items.Add(element.Name);
+            }
+        }
     }
 }

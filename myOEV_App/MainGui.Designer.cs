@@ -78,6 +78,7 @@
             this.cmb_Abfahrt.Name = "cmb_Abfahrt";
             this.cmb_Abfahrt.Size = new System.Drawing.Size(215, 28);
             this.cmb_Abfahrt.TabIndex = 6;
+            this.cmb_Abfahrt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmb_Abfahrt_KeyDown);
             // 
             // cmb_Ankunft
             // 
@@ -86,6 +87,7 @@
             this.cmb_Ankunft.Name = "cmb_Ankunft";
             this.cmb_Ankunft.Size = new System.Drawing.Size(215, 28);
             this.cmb_Ankunft.TabIndex = 7;
+            this.cmb_Ankunft.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmb_Ankunft_KeyDown);
             // 
             // tab_Panel
             // 
