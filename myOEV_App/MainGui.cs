@@ -26,7 +26,7 @@ namespace myOEV_App
             tabPage1.Text = "Fahrplan";
             tabPage2.Text = "Abfahrtstafel";
             tabPage2.BackColor = Color.LightYellow;
-
+            
         }
 
         private void cmb_Abfahrt_KeyDown(object sender, KeyEventArgs e)
@@ -60,5 +60,46 @@ namespace myOEV_App
                 cmb_Ankunft.Items.Add(element.Name);
             }
         }
+
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            Station depstation = new Station();
+            Station arrstation = new Station();
+            Vorschlag vorschlag = new Vorschlag();
+            ITransport transport = new Transport();
+            Connections connections;
+
+            if(!vorschlag.Stationavailable(cmb_Abfahrt.Text))
+            {
+                cmb_Abfahrt.Text = "Station nicht gefunden!";
+                cmb_Abfahrt.ForeColor = Color.Red;
+            }
+            else
+            {
+                cmb_Abfahrt.ForeColor = Color.Black;
+            }
+            if (!vorschlag.Stationavailable(cmb_Ankunft.Text))
+            {
+                cmb_Ankunft.Text = "Station nicht gefunden!";
+                cmb_Abfahrt.ForeColor = Color.Red;
+            }
+            else
+            {
+                cmb_Abfahrt.ForeColor = Color.Black;
+            }
+            connections = transport.GetConnections(cmb_Abfahrt.Text, cmb_Ankunft.Text);
+
+            foreach(Connection item in connections.ConnectionList)
+            {
+                lst_Fahrplan.Items.Clear();
+                lst_Fahrplan.Items.Add("Gleis" + "  " + "Abfahrt" + "  " + "Reisedauer" + "  " + "Ankunft" + "  " + "Versptäungen");
+                lst_Fahrplan.Items.Add(item.To.Platform + " " + item.To.DepartureTimestamp + " "); 
+            }
+
+        }
+
+       
+        
+       
     }
 }

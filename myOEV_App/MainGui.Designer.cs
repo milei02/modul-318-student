@@ -36,8 +36,10 @@
             this.cmb_Ankunft = new System.Windows.Forms.ComboBox();
             this.tab_Panel = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lst_Fahrplan = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tab_Panel.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_Abfahrt
@@ -69,6 +71,7 @@
             this.btn_Search.Size = new System.Drawing.Size(79, 40);
             this.btn_Search.TabIndex = 2;
             this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
             // cmb_Abfahrt
             // 
@@ -102,7 +105,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage1.Controls.Add(this.lst_Fahrplan);
             this.tabPage1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabPage1.ForeColor = System.Drawing.Color.White;
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
@@ -111,6 +114,15 @@
             this.tabPage1.Size = new System.Drawing.Size(532, 306);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
+            // 
+            // lst_Fahrplan
+            // 
+            this.lst_Fahrplan.FormattingEnabled = true;
+            this.lst_Fahrplan.ItemHeight = 20;
+            this.lst_Fahrplan.Location = new System.Drawing.Point(7, 7);
+            this.lst_Fahrplan.Name = "lst_Fahrplan";
+            this.lst_Fahrplan.Size = new System.Drawing.Size(515, 284);
+            this.lst_Fahrplan.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -142,6 +154,7 @@
             this.Text = "myÖV";
             this.Load += new System.EventHandler(this.MainGui_Load);
             this.tab_Panel.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,6 +170,7 @@
         private System.Windows.Forms.TabControl tab_Panel;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ListBox lst_Fahrplan;
     }
 }
 
