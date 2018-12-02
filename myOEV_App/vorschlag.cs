@@ -11,12 +11,29 @@ namespace myOEV_App
 {
     class Vorschlag
     {
-       
+ 
         /*Create a List of with the Stations an search with a value named input*/
         public List<Station> Searchstation (string input)
         {
             ITransport transport = new Transport();
             return transport.GetStations(input).StationList;
+        }
+
+
+        public bool Stationavailable (string station)
+        {
+            Vorschlag vorschlag = new Vorschlag();
+            List<Station> stations = vorschlag.Searchstation(station);
+
+            if(stations.Count > 0)
+                return true;
+
+            return false;           
+        }
+
+        public Station Findstation (string name)
+        {
+            return Searchstation(name).First<Station>();
         }
 
 
