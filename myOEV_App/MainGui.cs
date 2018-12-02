@@ -43,7 +43,10 @@ namespace myOEV_App
                 cmb_Abfahrt.Items.Add(element.Name);
             }
 
-            
+            cmb_Abfahrt.DroppedDown = true;
+
+
+
         }
 
         private void cmb_Ankunft_KeyDown(object sender, KeyEventArgs e)
@@ -81,19 +84,19 @@ namespace myOEV_App
             if (!vorschlag.Stationavailable(cmb_Ankunft.Text))
             {
                 cmb_Ankunft.Text = "Station nicht gefunden!";
-                cmb_Abfahrt.ForeColor = Color.Red;
+                cmb_Ankunft.ForeColor = Color.Red;
             }
             else
             {
-                cmb_Abfahrt.ForeColor = Color.Black;
+                cmb_Ankunft.ForeColor = Color.Black;
             }
             connections = transport.GetConnections(cmb_Abfahrt.Text, cmb_Ankunft.Text);
 
             foreach(Connection item in connections.ConnectionList)
             {
                 lst_Fahrplan.Items.Clear();
-                lst_Fahrplan.Items.Add("Gleis" + "  " + "Abfahrt" + "  " + "Reisedauer" + "  " + "Ankunft" + "  " + "Versptäungen");
-                lst_Fahrplan.Items.Add(item.To.Platform + " " + item.To.DepartureTimestamp + " "); 
+                lst_Fahrplan.Items.Add("Gleis" + "     " + "Abfahrt" + "              " + "Reisedauer" + "  " + "Ankunft" + "  " + "Versptäungen");
+                lst_Fahrplan.Items.Add(item.To.Platform + "       " + item.To.Departure); 
             }
 
         }

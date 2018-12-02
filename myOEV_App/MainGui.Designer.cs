@@ -75,10 +75,12 @@
             // 
             // cmb_Abfahrt
             // 
+            this.cmb_Abfahrt.AllowDrop = true;
             this.cmb_Abfahrt.BackColor = System.Drawing.Color.White;
             this.cmb_Abfahrt.FormattingEnabled = true;
             this.cmb_Abfahrt.Location = new System.Drawing.Point(16, 73);
             this.cmb_Abfahrt.Name = "cmb_Abfahrt";
+            this.cmb_Abfahrt.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cmb_Abfahrt.Size = new System.Drawing.Size(215, 28);
             this.cmb_Abfahrt.TabIndex = 6;
             this.cmb_Abfahrt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmb_Abfahrt_KeyDown);
