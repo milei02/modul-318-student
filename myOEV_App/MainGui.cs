@@ -31,6 +31,12 @@ namespace myOEV_App
             lst_Fahrplan.Columns.Add("Abfahrt um", lst_Fahrplan.Size.Width / 4);
             lst_Fahrplan.Columns.Add("Reisedauer", lst_Fahrplan.Size.Width / 4);
             lst_Fahrplan.Columns.Add("Ankunft", lst_Fahrplan.Size.Width / 4);
+            lst_Station.BackColor = Color.LightYellow;
+            lst_Station.View = View.Details;
+            lst_Station.Columns.Add("Nach", lst_Station.Size.Width / 4);
+            lst_Station.Columns.Add("Gleis", lst_Station.Size.Width / 4);
+            lst_Station.Columns.Add("Zugnummer", lst_Station.Size.Width / 4);
+            lst_Station.Columns.Add("Abfahrt", lst_Station.Size.Width / 4);
         }
 
         private void cmb_Abfahrt_KeyDown(object sender, KeyEventArgs e)
@@ -73,15 +79,14 @@ namespace myOEV_App
         }
 
         private void btn_Search_Click(object sender, EventArgs e)
-        {
+        {  
             lst_Fahrplan.Items.Clear();
             Station depstation = new Station();
-            Station arrstation = new Station();
-            Vorschlag vorschlag = new Vorschlag();
+            Station arrstation = new Station();         
             
-            Connections connections;
+            
 
-            if(!vorschlag.Stationavailable(cmb_Abfahrt.Text))
+            if(!v.Stationavailable(cmb_Abfahrt.Text))
             {
                 cmb_Abfahrt.Text = "Station nicht gefunden!";
                 cmb_Abfahrt.ForeColor = Color.Red;
@@ -90,7 +95,7 @@ namespace myOEV_App
             {
                 cmb_Abfahrt.ForeColor = Color.Black;
             }
-            if (!vorschlag.Stationavailable(cmb_Ankunft.Text))
+            if (!v.Stationavailable(cmb_Ankunft.Text))
             {
                 cmb_Ankunft.Text = "Station nicht gefunden!";
                 cmb_Ankunft.ForeColor = Color.Red;
@@ -100,14 +105,24 @@ namespace myOEV_App
                 cmb_Ankunft.ForeColor = Color.Black;
             }
 
-            connections = transport.GetConnections(cmb_Abfahrt.Text, cmb_Ankunft.Text);
+            Connections connections;
 
-            foreach(Connection item in connections.ConnectionList)
+            try
             {
-                
-                string[] items = { item.To.Platform, item.From.Departure.Remove(0, 11), item.Duration.Remove(0, 3), item.To.Arrival.Remove(0,11)};
-                lst_Fahrplan.Items.Add(new ListViewItem(items));                
+                connections = transport.GetConnections(cmb_Abfahrt.Text, cmb_Ankunft.Text);
+
+                foreach (Connection item in connections.ConnectionList)
+                {
+
+                    string[] items = { item.To.Platform, item.From.Departure.Remove(0, 11), item.Duration.Remove(0, 3), item.To.Arrival.Remove(0, 11) };
+                    lst_Fahrplan.Items.Add(new ListViewItem(items));
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex));
+            }
+
 
         }
 
@@ -130,7 +145,20 @@ namespace myOEV_App
 
         private void btn_Search2_Click(object sender, EventArgs e)
         {
+            lst_Station.Items.Clear();
 
+            if (!v.Stationavailable(cmb_Station.Text))
+            {
+                cmb_Station.Text = "Station nicht verfügbar!";
+                cmb_Station.ForeColor = Color.Red;
+            }
+            else
+            {
+                cmb_Station.ForeColor = Color.Black;
+            }
+
+
+            
         }
     }
 }
