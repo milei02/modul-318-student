@@ -81,8 +81,8 @@ namespace myOEV_App
         {  
             lst_Fahrplan.Items.Clear();
             Station depstation = new Station();
-            Station arrstation = new Station();         
-            
+            Station arrstation = new Station();
+
             
 
             if(!v.Stationavailable(cmb_Abfahrt.Text))
@@ -104,11 +104,15 @@ namespace myOEV_App
                 cmb_Ankunft.ForeColor = Color.Black;
             }
 
+            
             Connections connections;
 
+            DateTime dateTime = dtp_DatePicker.Value.Date;
+            dateTime += dtp_DatePicker.Value.TimeOfDay;
             try
             {
-                connections = transport.GetConnections(cmb_Abfahrt.Text, cmb_Ankunft.Text);
+                //dateTime hinzufügen
+                connections = transport.GetConnections(cmb_Abfahrt.Text, cmb_Ankunft.Text );
 
                 foreach (Connection item in connections.ConnectionList)
                 {
@@ -122,6 +126,7 @@ namespace myOEV_App
                 MessageBox.Show(Convert.ToString(ex));
             }
 
+            
 
         }
 
