@@ -36,13 +36,14 @@
             this.cmb_Ankunft = new System.Windows.Forms.ComboBox();
             this.tab_Panel = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btn_searchmap = new System.Windows.Forms.Button();
+            this.dtp_DatePicker = new System.Windows.Forms.DateTimePicker();
             this.lst_Fahrplan = new System.Windows.Forms.ListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lst_Station = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.cmb_Station = new System.Windows.Forms.ComboBox();
             this.btn_Search2 = new System.Windows.Forms.Button();
-            this.dtp_DatePicker = new System.Windows.Forms.DateTimePicker();
             this.tab_Panel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -72,7 +73,7 @@
             // 
             this.btn_Search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Search.BackgroundImage")));
             this.btn_Search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Search.Location = new System.Drawing.Point(537, 36);
+            this.btn_Search.Location = new System.Drawing.Point(537, 9);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(79, 40);
             this.btn_Search.TabIndex = 2;
@@ -114,6 +115,7 @@
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPage1.Controls.Add(this.btn_searchmap);
             this.tabPage1.Controls.Add(this.dtp_DatePicker);
             this.tabPage1.Controls.Add(this.lst_Fahrplan);
             this.tabPage1.Controls.Add(this.btn_Search);
@@ -129,6 +131,24 @@
             this.tabPage1.Size = new System.Drawing.Size(626, 435);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
+            // 
+            // btn_searchmap
+            // 
+            this.btn_searchmap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_searchmap.BackgroundImage")));
+            this.btn_searchmap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_searchmap.Location = new System.Drawing.Point(537, 55);
+            this.btn_searchmap.Name = "btn_searchmap";
+            this.btn_searchmap.Size = new System.Drawing.Size(79, 40);
+            this.btn_searchmap.TabIndex = 10;
+            this.btn_searchmap.UseVisualStyleBackColor = true;
+            this.btn_searchmap.Click += new System.EventHandler(this.btn_searchmap_Click);
+            // 
+            // dtp_DatePicker
+            // 
+            this.dtp_DatePicker.Location = new System.Drawing.Point(19, 78);
+            this.dtp_DatePicker.Name = "dtp_DatePicker";
+            this.dtp_DatePicker.Size = new System.Drawing.Size(215, 26);
+            this.dtp_DatePicker.TabIndex = 9;
             // 
             // lst_Fahrplan
             // 
@@ -196,13 +216,6 @@
             this.btn_Search2.UseVisualStyleBackColor = true;
             this.btn_Search2.Click += new System.EventHandler(this.btn_Search2_Click);
             // 
-            // dtp_DatePicker
-            // 
-            this.dtp_DatePicker.Location = new System.Drawing.Point(19, 78);
-            this.dtp_DatePicker.Name = "dtp_DatePicker";
-            this.dtp_DatePicker.Size = new System.Drawing.Size(215, 26);
-            this.dtp_DatePicker.TabIndex = 9;
-            // 
             // MainGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -241,6 +254,7 @@
         private System.Windows.Forms.ListView lst_Station;
         private System.Windows.Forms.ComboBox cmb_Abfahrt;
         private System.Windows.Forms.DateTimePicker dtp_DatePicker;
+        private System.Windows.Forms.Button btn_searchmap;
     }
 }
 

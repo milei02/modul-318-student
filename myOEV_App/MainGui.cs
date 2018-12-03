@@ -172,5 +172,18 @@ namespace myOEV_App
 
             
         }
+
+        private void btn_searchmap_Click(object sender, EventArgs e)
+        {
+            var stat = cmb_Ankunft.Text;
+            Station station = v.Findstation(cmb_Ankunft.Text);
+
+            if (!v.Stationavailable(cmb_Ankunft.Text))
+            {
+                cmb_Abfahrt.Text = "Station nicht gefunden";
+            }
+
+            System.Diagnostics.Process.Start("http://www.google.com/maps/place/" + station.Coordinate.XCoordinate.ToString().Replace(",", ".") + "," + station.Coordinate.YCoordinate.ToString().Replace(",","."));
+        }
     }
 }
