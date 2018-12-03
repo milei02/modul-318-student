@@ -33,10 +33,9 @@ namespace myOEV_App
             lst_Fahrplan.Columns.Add("Ankunft", lst_Fahrplan.Size.Width / 4);
             lst_Station.BackColor = Color.LightYellow;
             lst_Station.View = View.Details;
-            lst_Station.Columns.Add("Nach", lst_Station.Size.Width / 4);
-            lst_Station.Columns.Add("Gleis", lst_Station.Size.Width / 4);
-            lst_Station.Columns.Add("Zugnummer", lst_Station.Size.Width / 4);
-            lst_Station.Columns.Add("Abfahrt", lst_Station.Size.Width / 4);
+            lst_Station.Columns.Add("Nach", lst_Station.Size.Width / 3);
+            lst_Station.Columns.Add("Zug/Busnummer", lst_Station.Size.Width / 3);
+            lst_Station.Columns.Add("Abfahrt", lst_Station.Size.Width / 3);
         }
 
         private void cmb_Abfahrt_KeyDown(object sender, KeyEventArgs e)
@@ -146,7 +145,7 @@ namespace myOEV_App
         private void btn_Search2_Click(object sender, EventArgs e)
         {
             lst_Station.Items.Clear();
-
+            //Check if Station is available
             if (!v.Stationavailable(cmb_Station.Text))
             {
                 cmb_Station.Text = "Station nicht verfügbar!";
@@ -157,6 +156,14 @@ namespace myOEV_App
                 cmb_Station.ForeColor = Color.Black;
             }
 
+            Station station = v.Findstation(cmb_Station.Text);
+            string id = station.Id;
+
+            foreach(StationBoard element in transport.GetStationBoard(cmb_Station.Text, id).Entries)
+            {
+                string[] stationboard = { element.To, element.Number, Convert.ToString(element.Stop.Departure).Remove(0, 10) };
+                lst_Station.Items.Add(new ListViewItem(stationboard));
+            }
 
             
         }

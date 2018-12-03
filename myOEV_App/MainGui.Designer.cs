@@ -43,6 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmb_Station = new System.Windows.Forms.ComboBox();
             this.btn_Search2 = new System.Windows.Forms.Button();
+            this.dtp_DatePicker = new System.Windows.Forms.DateTimePicker();
             this.tab_Panel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -114,6 +115,7 @@
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPage1.Controls.Add(this.dtp_DatePicker);
             this.tabPage1.Controls.Add(this.webBrowser1);
             this.tabPage1.Controls.Add(this.lst_Fahrplan);
             this.tabPage1.Controls.Add(this.btn_Search);
@@ -140,9 +142,9 @@
             // 
             // lst_Fahrplan
             // 
-            this.lst_Fahrplan.Location = new System.Drawing.Point(19, 89);
+            this.lst_Fahrplan.Location = new System.Drawing.Point(19, 110);
             this.lst_Fahrplan.Name = "lst_Fahrplan";
-            this.lst_Fahrplan.Size = new System.Drawing.Size(597, 316);
+            this.lst_Fahrplan.Size = new System.Drawing.Size(597, 295);
             this.lst_Fahrplan.TabIndex = 0;
             this.lst_Fahrplan.UseCompatibleStateImageBehavior = false;
             this.lst_Fahrplan.View = System.Windows.Forms.View.Details;
@@ -204,6 +206,13 @@
             this.btn_Search2.UseVisualStyleBackColor = true;
             this.btn_Search2.Click += new System.EventHandler(this.btn_Search2_Click);
             // 
+            // dtp_DatePicker
+            // 
+            this.dtp_DatePicker.Location = new System.Drawing.Point(19, 78);
+            this.dtp_DatePicker.Name = "dtp_DatePicker";
+            this.dtp_DatePicker.Size = new System.Drawing.Size(215, 26);
+            this.dtp_DatePicker.TabIndex = 9;
+            // 
             // MainGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -242,6 +251,7 @@
         private System.Windows.Forms.Button btn_Search2;
         private System.Windows.Forms.ListView lst_Station;
         private System.Windows.Forms.ComboBox cmb_Abfahrt;
+        private System.Windows.Forms.DateTimePicker dtp_DatePicker;
     }
 }
 
