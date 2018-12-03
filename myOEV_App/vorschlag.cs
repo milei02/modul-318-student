@@ -22,8 +22,8 @@ namespace myOEV_App
 
         public bool Stationavailable (string station)
         {
-            Vorschlag vorschlag = new Vorschlag();
-            List<Station> stations = vorschlag.Searchstation(station);
+            
+            List<Station> stations = this.Searchstation(station);
 
             if(stations.Count > 0)
                 return true;

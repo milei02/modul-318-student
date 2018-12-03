@@ -15,59 +15,61 @@ namespace myOEV_App
     {
         Vorschlag v = new Vorschlag();
         public string query;
+        ITransport transport = new Transport();
         public MainGui()
         {
             InitializeComponent();
         }
 
         private void MainGui_Load(object sender, EventArgs e)
-        {
-            
+        {            
             tabPage1.Text = "Fahrplan";
             tabPage2.Text = "Abfahrtstafel";
             tabPage2.BackColor = Color.LightYellow;
-
             lst_Fahrplan.View = View.Details;
             lst_Fahrplan.Columns.Add("Gleis", lst_Fahrplan.Size.Width / 4);
             lst_Fahrplan.Columns.Add("Abfahrt um", lst_Fahrplan.Size.Width / 4);
             lst_Fahrplan.Columns.Add("Reisedauer", lst_Fahrplan.Size.Width / 4);
             lst_Fahrplan.Columns.Add("Ankunft", lst_Fahrplan.Size.Width / 4);
-            
-
-
         }
 
         private void cmb_Abfahrt_KeyDown(object sender, KeyEventArgs e)
         {
-            
             if (e.KeyCode != Keys.Enter)
                 return;
+            cmb_Abfahrt.Items.Clear();
 
             var input = cmb_Abfahrt.Text;
-            Vorschlag vorschlag = new Vorschlag();
-            List<Station> stations = vorschlag.Searchstation((string)input);
+            
+            List<Station> stations = v.Searchstation((string)input);
+            
 
+           
             foreach(Station element in stations)
             {
-                cmb_Abfahrt.Items.Add(element.Name);
+                    cmb_Abfahrt.Items.Add(element.Name);
+                
+                
             }
-
-            
+            cmb_Abfahrt.DroppedDown = true;        
         }
 
         private void cmb_Ankunft_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter)
                 return;
+            cmb_Ankunft.Items.Clear();
 
             var input = cmb_Ankunft.Text;
-            Vorschlag vorschlag = new Vorschlag();
-            List<Station> stations = vorschlag.Searchstation((string)input);
+            
+            List<Station> stations = v.Searchstation((string)input);
 
-            foreach(Station element in stations)
+            foreach (Station element in stations)
             {
+               
                 cmb_Ankunft.Items.Add(element.Name);
             }
+            cmb_Ankunft.DroppedDown = true;
         }
 
         private void btn_Search_Click(object sender, EventArgs e)
@@ -76,7 +78,7 @@ namespace myOEV_App
             Station depstation = new Station();
             Station arrstation = new Station();
             Vorschlag vorschlag = new Vorschlag();
-            ITransport transport = new Transport();
+            
             Connections connections;
 
             if(!vorschlag.Stationavailable(cmb_Abfahrt.Text))
@@ -97,6 +99,7 @@ namespace myOEV_App
             {
                 cmb_Ankunft.ForeColor = Color.Black;
             }
+
             connections = transport.GetConnections(cmb_Abfahrt.Text, cmb_Ankunft.Text);
 
             foreach(Connection item in connections.ConnectionList)
@@ -108,8 +111,26 @@ namespace myOEV_App
 
         }
 
-       
-        
-       
+        private void cmb_Station_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter)
+                return;
+            cmb_Station.Items.Clear();
+
+            var input = cmb_Station.Text;
+            List<Station> stations = v.Searchstation((string)input);
+
+            foreach (Station element in stations)
+            {                
+                cmb_Station.Items.Add(element.Name);
+            }
+            
+            cmb_Station.DroppedDown = true;
+        }
+
+        private void btn_Search2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
