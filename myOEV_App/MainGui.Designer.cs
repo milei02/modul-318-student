@@ -36,8 +36,8 @@
             this.cmb_Ankunft = new System.Windows.Forms.ComboBox();
             this.tab_Panel = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.lst_Fahrplan = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lst_Fahrplan = new System.Windows.Forms.ListView();
             this.tab_Panel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -101,7 +101,7 @@
             this.tab_Panel.Location = new System.Drawing.Point(16, 117);
             this.tab_Panel.Name = "tab_Panel";
             this.tab_Panel.SelectedIndex = 0;
-            this.tab_Panel.Size = new System.Drawing.Size(540, 339);
+            this.tab_Panel.Size = new System.Drawing.Size(630, 339);
             this.tab_Panel.TabIndex = 8;
             // 
             // tabPage1
@@ -113,18 +113,9 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(532, 306);
+            this.tabPage1.Size = new System.Drawing.Size(622, 306);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
-            // 
-            // lst_Fahrplan
-            // 
-            this.lst_Fahrplan.FormattingEnabled = true;
-            this.lst_Fahrplan.ItemHeight = 20;
-            this.lst_Fahrplan.Location = new System.Drawing.Point(7, 7);
-            this.lst_Fahrplan.Name = "lst_Fahrplan";
-            this.lst_Fahrplan.Size = new System.Drawing.Size(515, 284);
-            this.lst_Fahrplan.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -136,6 +127,15 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lst_Fahrplan
+            // 
+            this.lst_Fahrplan.Location = new System.Drawing.Point(7, 4);
+            this.lst_Fahrplan.Name = "lst_Fahrplan";
+            this.lst_Fahrplan.Size = new System.Drawing.Size(612, 299);
+            this.lst_Fahrplan.TabIndex = 0;
+            this.lst_Fahrplan.UseCompatibleStateImageBehavior = false;
+            this.lst_Fahrplan.View = System.Windows.Forms.View.Details;
             // 
             // MainGui
             // 
@@ -172,7 +172,7 @@
         private System.Windows.Forms.TabControl tab_Panel;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ListBox lst_Fahrplan;
+        private System.Windows.Forms.ListView lst_Fahrplan;
     }
 }
 

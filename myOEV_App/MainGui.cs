@@ -26,7 +26,15 @@ namespace myOEV_App
             tabPage1.Text = "Fahrplan";
             tabPage2.Text = "Abfahrtstafel";
             tabPage2.BackColor = Color.LightYellow;
-            
+
+            lst_Fahrplan.View = View.Details;
+            lst_Fahrplan.Columns.Add("Gleis", lst_Fahrplan.Size.Width / 5);
+            lst_Fahrplan.Columns.Add("Abfahrt um", lst_Fahrplan.Size.Width / 5);
+            lst_Fahrplan.Columns.Add("Reisedauer", lst_Fahrplan.Size.Width / 5);
+            lst_Fahrplan.Columns.Add("Ankunft", lst_Fahrplan.Size.Width / 5);
+            lst_Fahrplan.Columns.Add("Verspätungen", lst_Fahrplan.Size.Width / 5);
+
+
         }
 
         private void cmb_Abfahrt_KeyDown(object sender, KeyEventArgs e)
@@ -42,8 +50,6 @@ namespace myOEV_App
             {
                 cmb_Abfahrt.Items.Add(element.Name);
             }
-
-            cmb_Abfahrt.DroppedDown = true;
 
 
 
@@ -95,8 +101,8 @@ namespace myOEV_App
             foreach(Connection item in connections.ConnectionList)
             {
                 lst_Fahrplan.Items.Clear();
-                lst_Fahrplan.Items.Add("Gleis" + "     " + "Abfahrt" + "              " + "Reisedauer" + "  " + "Ankunft" + "  " + "Versptäungen");
-                lst_Fahrplan.Items.Add(item.To.Platform + "       " + item.To.Departure); 
+                string[] items = { item.To.Platform, item.From.Departure, item.Duration, item.To.Arrival, Convert.ToString(item.To.Delay)};
+                lst_Fahrplan.Items.Add(new ListViewItem(items));                
             }
 
         }
