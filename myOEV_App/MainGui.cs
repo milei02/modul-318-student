@@ -22,7 +22,7 @@ namespace myOEV_App
 
         private void MainGui_Load(object sender, EventArgs e)
         {
-            AutoCompleteStringCollection allowedTypes = new AutoCompleteStringCollection();
+            
             tabPage1.Text = "Fahrplan";
             tabPage2.Text = "Abfahrtstafel";
             tabPage2.BackColor = Color.LightYellow;
@@ -102,7 +102,7 @@ namespace myOEV_App
             foreach(Connection item in connections.ConnectionList)
             {
                 
-                string[] items = { item.To.Platform, item.From.Departure, item.Duration, item.To.Arrival};
+                string[] items = { item.To.Platform, item.From.Departure.Remove(0, 11), item.Duration.Remove(0, 3), item.To.Arrival.Remove(0,11)};
                 lst_Fahrplan.Items.Add(new ListViewItem(items));                
             }
 

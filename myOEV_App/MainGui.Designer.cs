@@ -132,7 +132,7 @@
             // 
             this.lst_Fahrplan.Location = new System.Drawing.Point(7, 4);
             this.lst_Fahrplan.Name = "lst_Fahrplan";
-            this.lst_Fahrplan.Size = new System.Drawing.Size(612, 299);
+            this.lst_Fahrplan.Size = new System.Drawing.Size(609, 299);
             this.lst_Fahrplan.TabIndex = 0;
             this.lst_Fahrplan.UseCompatibleStateImageBehavior = false;
             this.lst_Fahrplan.View = System.Windows.Forms.View.Details;
@@ -142,7 +142,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(887, 503);
+            this.ClientSize = new System.Drawing.Size(1258, 503);
             this.Controls.Add(this.tab_Panel);
             this.Controls.Add(this.cmb_Ankunft);
             this.Controls.Add(this.cmb_Abfahrt);
