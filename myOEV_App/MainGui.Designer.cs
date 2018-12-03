@@ -36,7 +36,6 @@
             this.cmb_Ankunft = new System.Windows.Forms.ComboBox();
             this.tab_Panel = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.lst_Fahrplan = new System.Windows.Forms.ListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lst_Station = new System.Windows.Forms.ListView();
@@ -108,7 +107,7 @@
             this.tab_Panel.Location = new System.Drawing.Point(16, 12);
             this.tab_Panel.Name = "tab_Panel";
             this.tab_Panel.SelectedIndex = 0;
-            this.tab_Panel.Size = new System.Drawing.Size(1237, 468);
+            this.tab_Panel.Size = new System.Drawing.Size(634, 468);
             this.tab_Panel.TabIndex = 8;
             // 
             // tabPage1
@@ -116,7 +115,6 @@
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPage1.Controls.Add(this.dtp_DatePicker);
-            this.tabPage1.Controls.Add(this.webBrowser1);
             this.tabPage1.Controls.Add(this.lst_Fahrplan);
             this.tabPage1.Controls.Add(this.btn_Search);
             this.tabPage1.Controls.Add(this.cmb_Abfahrt);
@@ -128,17 +126,9 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1229, 435);
+            this.tabPage1.Size = new System.Drawing.Size(626, 435);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(638, 43);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(574, 362);
-            this.webBrowser1.TabIndex = 8;
             // 
             // lst_Fahrplan
             // 
@@ -158,7 +148,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1229, 435);
+            this.tabPage2.Size = new System.Drawing.Size(626, 435);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -218,7 +208,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1258, 481);
+            this.ClientSize = new System.Drawing.Size(667, 495);
             this.Controls.Add(this.tab_Panel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -245,7 +235,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ListView lst_Fahrplan;
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmb_Station;
         private System.Windows.Forms.Button btn_Search2;
