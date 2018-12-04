@@ -12,14 +12,24 @@ namespace myOEV_App
     class Vorschlag
     {
  
-        /*Create a List of with the Stations an search with a value named input*/
+        
+
+            /// <summary>
+            /// Hier wird eine List mit de Stationen erstellt, welche gesucht werden.
+            /// </summary>
+            /// <param name="input"></param>
+            /// <returns></returns>
         public List<Station> Searchstation (string input)
         {
             ITransport transport = new Transport();
             return transport.GetStations(input).StationList;
         }
 
-
+        /// <summary>
+        /// Hier wird überprüft ob die Station verfügbar ist. 
+        /// </summary>
+        /// <param name="station"></param>
+        /// <returns></returns>
         public bool Stationavailable (string station)
         {
             
@@ -31,10 +41,19 @@ namespace myOEV_App
             return false;           
         }
 
-        public Station Findstation (string name)
-        {
-            return Searchstation(name).First<Station>();
+
+        /// <summary>
+        /// Hier wird die Station gesucht und in den string "name" gespeichert.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public Station Findstation(string name)
+        {            
+                return Searchstation(name).First<Station>();         
+        
+         
         }
+
 
 
         
