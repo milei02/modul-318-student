@@ -48,11 +48,8 @@ namespace myOEV_App
         /// <param name="name"></param>
         /// <returns></returns>
         public Station Findstation(string name)
-        {            
-            
+        {
                 return Searchstation(name).First<Station>();
-            
-
            
         
          

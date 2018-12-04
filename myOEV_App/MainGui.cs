@@ -42,7 +42,7 @@ namespace myOEV_App
             lst_Station.Columns.Add("Abfahrt", lst_Station.Size.Width / 3);
         }
 
-        ///Die Automatische Suchfunktion welche in der Combobox die Vorschläge anzeigt. (Für die Abfahrtsstation)
+        //Die Automatische Suchfunktion welche in der Combobox die Vorschläge anzeigt. (Für die Abfahrtsstation)
         private void cmb_Abfahrt_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter)                
@@ -50,7 +50,8 @@ namespace myOEV_App
             cmb_Abfahrt.Items.Clear();
             var input = cmb_Abfahrt.Text;
             List<Station> stations = v.Searchstation((string)input);
-
+            
+            //Hier wird überprüft ob die Station vorhanden ist. Das dient dazu, dass man nicht einfach irgendwelche Buchstaben eingeben kann.
             try
             {
                 foreach (Station element in stations)
@@ -62,12 +63,13 @@ namespace myOEV_App
             {
                 MessageBox.Show("Station nicht gefunden / Netzwerkfehler. Bitte versuchen Sie es erneut. Falls das Problem in ein paar Minuten immer noch besteht holen sie sich hilfe.");
             }
+
             cmb_Abfahrt.DroppedDown = true;
             e.Handled = true;
             
         }
 
-        ///Die Automatische Suchfunktion welche in der Combobox die Vorschläge anzeigt. (Für die Ankunftsstation)
+        //Die Automatische Suchfunktion welche in der Combobox die Vorschläge anzeigt. (Für die Ankunftsstation)
         private void cmb_Ankunft_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter)
@@ -76,6 +78,8 @@ namespace myOEV_App
 
             var input = cmb_Ankunft.Text;            
             List<Station> stations = v.Searchstation((string)input);
+
+            //Hier wieder das selbe Beispiel mit dem verhindern von nîcht möglichen Ergebnissen.
             try
             {
                 foreach (Station element in stations)
@@ -87,6 +91,7 @@ namespace myOEV_App
             {
                 MessageBox.Show("Station nicht gefunden / Netzwerkfehler. Bitte versuchen Sie es erneut. Falls das Problem in ein paar Minuten immer noch besteht holen sie sich hilfe.");
             }
+
             cmb_Ankunft.DroppedDown = true;
             e.Handled = true;
         }
@@ -110,25 +115,19 @@ namespace myOEV_App
                 {
                     cmb_Ankunft.Text = "Station nicht gefunden!";
 
-                }
+                }          
+                     
+            Connections connections;       
             
-         
-
-            
-            Connections connections;
-            
+            //Dem dateTime werden die Werte zugeweisen.
             DateTime dateTime = dtp_DatePicker.Value.Date;
-            dateTime += dtp_DatePicker.Value.TimeOfDay;
+            dateTime += dtp_DatePicker.Value.TimeOfDay;           
             
-            
-
             //Hier wird geschaut ob der Request von dre API ankommt und ein Resultat zurückliefert. Falls nicht wird eine Fehlermeldung angezeigt.
             try
             {
-                //dateTime hinzufügen
                 connections = transport.GetConnections(cmb_Abfahrt.Text, cmb_Ankunft.Text, dateTime);
                 
-                                
                 foreach (Connection item in connections.ConnectionList)
                 {
 
@@ -139,10 +138,7 @@ namespace myOEV_App
             catch (Exception)
             {
                 MessageBox.Show("Station nicht gefunden / Netzwerkfehler. Bitte versuchen Sie es erneut. Falls das Problem in ein paar Minuten immer noch besteht holen sie sich hilfe.");
-            }
-
-            
-
+            }          
         }
 
 
@@ -176,8 +172,8 @@ namespace myOEV_App
             {
                 cmb_Station.Text = "Station nicht verfügbar!";
             }
-
-
+            
+            //Hier wird wieder überprüft, ob die Eingabe vom User zu einem gewünschten Resultat führt. Ansonsten ergibt es eine Fehlermeldung.
             try
             {
                 Station station = v.Findstation(cmb_Station.Text);
@@ -189,9 +185,9 @@ namespace myOEV_App
                     lst_Station.Items.Add(new ListViewItem(stationboard));
                 }
             }
-            catch(Exception x)
+            catch(Exception)
             {
-                MessageBox.Show("Bitte geben Sie eine gültige Station ein" + Convert.ToString(x));
+                MessageBox.Show("Station nicht gefunden / Netzwerkfehler. Bitte versuchen Sie es erneut. Falls das Problem in ein paar Minuten immer noch besteht holen sie sich hilfe.");
             }
 
             
@@ -200,33 +196,51 @@ namespace myOEV_App
         //Der Standort vom Zielbahnhof wird auf Google Maps angezeigt.
         private void btn_searchmap_Click(object sender, EventArgs e)
         {
-            var stat = cmb_Ankunft.Text;
-            Station station = v.Findstation(cmb_Ankunft.Text);
+            try {
+                var stat = cmb_Ankunft.Text;
+                Station station = v.Findstation(cmb_Ankunft.Text);
 
-            if (!v.Stationavailable(cmb_Station.Text))
-            {
-                cmb_Abfahrt.Text = "Station nicht gefunden!";
+                if (!v.Stationavailable(cmb_Station.Text))
+                {
+                    cmb_Abfahrt.Text = "Station nicht gefunden!";
 
+                }
+
+                System.Diagnostics.Process.Start("http://www.google.com/maps/place/" + station.Coordinate.XCoordinate.ToString().Replace(",", ".") + "," + station.Coordinate.YCoordinate.ToString().Replace(",", "."));
             }
-           
+            catch (Exception)
+            {
+                MessageBox.Show("Station nicht gefunden / Netzwerkfehler.Bitte versuchen Sie es erneut.Falls das Problem in ein paar Minuten immer noch besteht holen sie sich hilfe.");
+            }
+            }
 
-            System.Diagnostics.Process.Start("http://www.google.com/maps/place/" + station.Coordinate.XCoordinate.ToString().Replace(",", ".") + "," + station.Coordinate.YCoordinate.ToString().Replace(",","."));
-        }
 
         //Der Standort vom gesuchten Bahnhof wird auf Google Maps angezeit.
         private void btn_searchmapstation_Click(object sender, EventArgs e)
         {
-            var station = cmb_Station.Text;
-            Station stat = v.Findstation(cmb_Station.Text);
-
-            if (!v.Stationavailable(cmb_Station.Text))
+            try
             {
-                cmb_Station.Text = "Station nicht gefundne";
+
+
+                var station = cmb_Station.Text;
+                Station stat = v.Findstation(cmb_Station.Text);
+
+                if (!v.Stationavailable(cmb_Station.Text))
+                {
+                    cmb_Station.Text = "Station nicht gefundne";
+                }
+
+                System.Diagnostics.Process.Start("http://www.google.com/maps/place/" + stat.Coordinate.XCoordinate.ToString().Replace(",", ".") + "," + stat.Coordinate.YCoordinate.ToString().Replace(",", "."));
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Station nicht gefunden / Netzwerkfehler. Bitte versuchen Sie es erneut. Falls das Problem in ein paar Minuten immer noch besteht holen sie sich hilfe.");
+            }
+           }
 
-            System.Diagnostics.Process.Start("http://www.google.com/maps/place/" + stat.Coordinate.XCoordinate.ToString().Replace(",", ".") + "," + stat.Coordinate.YCoordinate.ToString().Replace(",", "."));
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
-
-        
     }
 }
