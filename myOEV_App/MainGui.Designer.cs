@@ -44,6 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmb_Station = new System.Windows.Forms.ComboBox();
             this.btn_Search2 = new System.Windows.Forms.Button();
+            this.btn_searchmapstation = new System.Windows.Forms.Button();
             this.tab_Panel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -76,20 +77,19 @@
             this.btn_Search.Location = new System.Drawing.Point(537, 9);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(79, 40);
-            this.btn_Search.TabIndex = 2;
+            this.btn_Search.TabIndex = 3;
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
             // cmb_Abfahrt
             // 
-            this.cmb_Abfahrt.AllowDrop = true;
             this.cmb_Abfahrt.BackColor = System.Drawing.Color.White;
             this.cmb_Abfahrt.FormattingEnabled = true;
             this.cmb_Abfahrt.Location = new System.Drawing.Point(19, 43);
             this.cmb_Abfahrt.Name = "cmb_Abfahrt";
             this.cmb_Abfahrt.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cmb_Abfahrt.Size = new System.Drawing.Size(215, 28);
-            this.cmb_Abfahrt.TabIndex = 6;
+            this.cmb_Abfahrt.TabIndex = 1;
             this.cmb_Abfahrt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmb_Abfahrt_KeyDown);
             // 
             // cmb_Ankunft
@@ -98,14 +98,14 @@
             this.cmb_Ankunft.Location = new System.Drawing.Point(298, 43);
             this.cmb_Ankunft.Name = "cmb_Ankunft";
             this.cmb_Ankunft.Size = new System.Drawing.Size(215, 28);
-            this.cmb_Ankunft.TabIndex = 7;
+            this.cmb_Ankunft.TabIndex = 2;
             this.cmb_Ankunft.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmb_Ankunft_KeyDown);
             // 
             // tab_Panel
             // 
             this.tab_Panel.Controls.Add(this.tabPage1);
             this.tab_Panel.Controls.Add(this.tabPage2);
-            this.tab_Panel.Location = new System.Drawing.Point(16, 12);
+            this.tab_Panel.Location = new System.Drawing.Point(12, 12);
             this.tab_Panel.Name = "tab_Panel";
             this.tab_Panel.SelectedIndex = 0;
             this.tab_Panel.Size = new System.Drawing.Size(634, 468);
@@ -139,7 +139,7 @@
             this.btn_searchmap.Location = new System.Drawing.Point(537, 55);
             this.btn_searchmap.Name = "btn_searchmap";
             this.btn_searchmap.Size = new System.Drawing.Size(79, 40);
-            this.btn_searchmap.TabIndex = 10;
+            this.btn_searchmap.TabIndex = 4;
             this.btn_searchmap.UseVisualStyleBackColor = true;
             this.btn_searchmap.Click += new System.EventHandler(this.btn_searchmap_Click);
             // 
@@ -161,6 +161,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btn_searchmapstation);
             this.tabPage2.Controls.Add(this.lst_Station);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.cmb_Station);
@@ -202,7 +203,7 @@
             this.cmb_Station.Name = "cmb_Station";
             this.cmb_Station.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cmb_Station.Size = new System.Drawing.Size(215, 28);
-            this.cmb_Station.TabIndex = 7;
+            this.cmb_Station.TabIndex = 1;
             this.cmb_Station.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmb_Station_KeyDown);
             // 
             // btn_Search2
@@ -212,9 +213,20 @@
             this.btn_Search2.Location = new System.Drawing.Point(263, 35);
             this.btn_Search2.Name = "btn_Search2";
             this.btn_Search2.Size = new System.Drawing.Size(79, 40);
-            this.btn_Search2.TabIndex = 3;
+            this.btn_Search2.TabIndex = 2;
             this.btn_Search2.UseVisualStyleBackColor = true;
             this.btn_Search2.Click += new System.EventHandler(this.btn_Search2_Click);
+            // 
+            // btn_searchmapstation
+            // 
+            this.btn_searchmapstation.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_searchmapstation.BackgroundImage")));
+            this.btn_searchmapstation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_searchmapstation.Location = new System.Drawing.Point(357, 35);
+            this.btn_searchmapstation.Name = "btn_searchmapstation";
+            this.btn_searchmapstation.Size = new System.Drawing.Size(79, 40);
+            this.btn_searchmapstation.TabIndex = 3;
+            this.btn_searchmapstation.UseVisualStyleBackColor = true;
+            this.btn_searchmapstation.Click += new System.EventHandler(this.btn_searchmapstation_Click);
             // 
             // MainGui
             // 
@@ -255,6 +267,7 @@
         private System.Windows.Forms.ComboBox cmb_Abfahrt;
         private System.Windows.Forms.DateTimePicker dtp_DatePicker;
         private System.Windows.Forms.Button btn_searchmap;
+        private System.Windows.Forms.Button btn_searchmapstation;
     }
 }
 
