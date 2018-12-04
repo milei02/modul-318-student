@@ -48,15 +48,16 @@ namespace myOEV_App
             if (e.KeyCode != Keys.Enter)                
             return;
             cmb_Abfahrt.Items.Clear();
-
-            var input = cmb_Abfahrt.Text;            
+            var input = cmb_Abfahrt.Text;
             List<Station> stations = v.Searchstation((string)input);
+
             foreach (Station element in stations)
             {
-                cmb_Abfahrt.Items.Add(element.Name);
+            cmb_Abfahrt.Items.Add(element.Name);
             }
-
             cmb_Abfahrt.DroppedDown = true;
+            e.Handled = true;
+            
         }
 
         ///Die Automatische Suchfunktion welche in der Combobox die Vorschläge anzeigt. (Für die Ankunftsstation)
@@ -73,6 +74,7 @@ namespace myOEV_App
                 cmb_Ankunft.Items.Add(element.Name);
             }
             cmb_Ankunft.DroppedDown = true;
+            e.Handled = true;
         }
 
         //Mit diesem Knopf werden die Stationen gesucht. 
@@ -152,6 +154,7 @@ namespace myOEV_App
             }
             
             cmb_Station.DroppedDown = true;
+            e.Handled = true;
         }
 
 
