@@ -40,11 +40,12 @@
             this.dtp_DatePicker = new System.Windows.Forms.DateTimePicker();
             this.lst_Fahrplan = new System.Windows.Forms.ListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_searchmapstation = new System.Windows.Forms.Button();
             this.lst_Station = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.cmb_Station = new System.Windows.Forms.ComboBox();
             this.btn_Search2 = new System.Windows.Forms.Button();
-            this.btn_searchmapstation = new System.Windows.Forms.Button();
+            this.btn_close = new System.Windows.Forms.Button();
             this.tab_Panel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -77,7 +78,7 @@
             this.btn_Search.Location = new System.Drawing.Point(537, 9);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(79, 40);
-            this.btn_Search.TabIndex = 3;
+            this.btn_Search.TabIndex = 4;
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
@@ -109,7 +110,7 @@
             this.tab_Panel.Name = "tab_Panel";
             this.tab_Panel.SelectedIndex = 0;
             this.tab_Panel.Size = new System.Drawing.Size(634, 468);
-            this.tab_Panel.TabIndex = 8;
+            this.tab_Panel.TabIndex = 6;
             // 
             // tabPage1
             // 
@@ -139,7 +140,7 @@
             this.btn_searchmap.Location = new System.Drawing.Point(537, 55);
             this.btn_searchmap.Name = "btn_searchmap";
             this.btn_searchmap.Size = new System.Drawing.Size(79, 40);
-            this.btn_searchmap.TabIndex = 4;
+            this.btn_searchmap.TabIndex = 5;
             this.btn_searchmap.UseVisualStyleBackColor = true;
             this.btn_searchmap.Click += new System.EventHandler(this.btn_searchmap_Click);
             // 
@@ -148,7 +149,7 @@
             this.dtp_DatePicker.Location = new System.Drawing.Point(19, 78);
             this.dtp_DatePicker.Name = "dtp_DatePicker";
             this.dtp_DatePicker.Size = new System.Drawing.Size(215, 26);
-            this.dtp_DatePicker.TabIndex = 9;
+            this.dtp_DatePicker.TabIndex = 3;
             // 
             // lst_Fahrplan
             // 
@@ -173,6 +174,17 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btn_searchmapstation
+            // 
+            this.btn_searchmapstation.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_searchmapstation.BackgroundImage")));
+            this.btn_searchmapstation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_searchmapstation.Location = new System.Drawing.Point(357, 35);
+            this.btn_searchmapstation.Name = "btn_searchmapstation";
+            this.btn_searchmapstation.Size = new System.Drawing.Size(79, 40);
+            this.btn_searchmapstation.TabIndex = 3;
+            this.btn_searchmapstation.UseVisualStyleBackColor = true;
+            this.btn_searchmapstation.Click += new System.EventHandler(this.btn_searchmapstation_Click);
             // 
             // lst_Station
             // 
@@ -217,16 +229,17 @@
             this.btn_Search2.UseVisualStyleBackColor = true;
             this.btn_Search2.Click += new System.EventHandler(this.btn_Search2_Click);
             // 
-            // btn_searchmapstation
+            // btn_close
             // 
-            this.btn_searchmapstation.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_searchmapstation.BackgroundImage")));
-            this.btn_searchmapstation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_searchmapstation.Location = new System.Drawing.Point(357, 35);
-            this.btn_searchmapstation.Name = "btn_searchmapstation";
-            this.btn_searchmapstation.Size = new System.Drawing.Size(79, 40);
-            this.btn_searchmapstation.TabIndex = 3;
-            this.btn_searchmapstation.UseVisualStyleBackColor = true;
-            this.btn_searchmapstation.Click += new System.EventHandler(this.btn_searchmapstation_Click);
+            this.btn_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_close.Location = new System.Drawing.Point(543, 3);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(96, 32);
+            this.btn_close.TabIndex = 4;
+            this.btn_close.Text = "Beenden";
+            this.btn_close.UseVisualStyleBackColor = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // MainGui
             // 
@@ -234,6 +247,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(667, 495);
+            this.Controls.Add(this.btn_close);
             this.Controls.Add(this.tab_Panel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -268,6 +282,7 @@
         private System.Windows.Forms.DateTimePicker dtp_DatePicker;
         private System.Windows.Forms.Button btn_searchmap;
         private System.Windows.Forms.Button btn_searchmapstation;
+        private System.Windows.Forms.Button btn_close;
     }
 }
 
