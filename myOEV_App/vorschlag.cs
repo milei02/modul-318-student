@@ -34,7 +34,6 @@ namespace myOEV_App
         {
             
             List<Station> stations = this.Searchstation(station);
-
             if(stations.Count > 0)
                 return true;
 

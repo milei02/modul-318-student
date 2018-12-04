@@ -106,18 +106,18 @@ namespace myOEV_App
 
             
             Connections connections;
-            /*
+            
             DateTime dateTime = dtp_DatePicker.Value.Date;
             dateTime += dtp_DatePicker.Value.TimeOfDay;
-            dateTime = dtp_DatePicker.Value.Date;
-            */
+            
+            
 
             //Hier wird geschaut ob der Request von dre API ankommt und ein Resultat zurückliefert. Falls nicht wird eine Fehlermeldung angezeigt.
             try
             {
                 //dateTime hinzufügen
-                connections = transport.GetConnections(cmb_Abfahrt.Text, /*dateTime,*/ cmb_Ankunft.Text );
-
+                connections = transport.GetConnections(cmb_Abfahrt.Text, cmb_Ankunft.Text, dateTime);
+                
                                 
                 foreach (Connection item in connections.ConnectionList)
                 {
