@@ -9,8 +9,6 @@ namespace SwissTransport
 
         //Hier wurde das DateTime dateTime hinzugefügt, dass dieser Parameter auch mitübergeben wird.
         Connections GetConnections(string fromStation, string toStattion, DateTime dateTime);
-
-       
-
+        
     }
 }
