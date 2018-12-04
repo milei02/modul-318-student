@@ -40,6 +40,14 @@ namespace SwissTransport
             return null;
         }
 
+
+        /// <summary>
+        /// Hier werden über den Webrequest die verschiednen Routen herausgesucht. Die folgenden Parameter werden auch in den Weblink eingebunden. 
+        /// </summary>
+        /// <param name="fromStation"></param>
+        /// <param name="toStattion"></param>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
         public Connections GetConnections(string fromStation, string toStattion, DateTime dateTime)
         {
                 //Datumssuche hinzugefügt damit man mit dem Datum suchen kann.
