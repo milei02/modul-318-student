@@ -51,9 +51,16 @@ namespace myOEV_App
             var input = cmb_Abfahrt.Text;
             List<Station> stations = v.Searchstation((string)input);
 
-            foreach (Station element in stations)
+            try
             {
-            cmb_Abfahrt.Items.Add(element.Name);
+                foreach (Station element in stations)
+                {
+                    cmb_Abfahrt.Items.Add(element.Name);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Station nicht gefunden / Netzwerkfehler. Bitte versuchen Sie es erneut. Falls das Problem in ein paar Minuten immer noch besteht holen sie sich hilfe.");
             }
             cmb_Abfahrt.DroppedDown = true;
             e.Handled = true;
@@ -69,9 +76,16 @@ namespace myOEV_App
 
             var input = cmb_Ankunft.Text;            
             List<Station> stations = v.Searchstation((string)input);
-            foreach (Station element in stations)
-            {               
-                cmb_Ankunft.Items.Add(element.Name);
+            try
+            {
+                foreach (Station element in stations)
+                {
+                    cmb_Ankunft.Items.Add(element.Name);
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Station nicht gefunden / Netzwerkfehler. Bitte versuchen Sie es erneut. Falls das Problem in ein paar Minuten immer noch besteht holen sie sich hilfe.");
             }
             cmb_Ankunft.DroppedDown = true;
             e.Handled = true;
@@ -83,28 +97,22 @@ namespace myOEV_App
             lst_Fahrplan.Items.Clear();
             Station depstation = new Station();
             Station arrstation = new Station();
+
+
             
+                //Hier wird überprüft ob die einzelnen Stationen verfügbar sind
+                if (!v.Stationavailable(cmb_Abfahrt.Text))
+                {
+                    cmb_Abfahrt.Text = "Station nicht gefunden!";
 
+                }
+                if (!v.Stationavailable(cmb_Ankunft.Text))
+                {
+                    cmb_Ankunft.Text = "Station nicht gefunden!";
 
-            //Hier wird überprüft ob die einzelnen Stationen verfügbar sind
-            if (!v.Stationavailable(cmb_Abfahrt.Text))
-            {
-                cmb_Abfahrt.Text = "Station nicht gefunden!";
-                cmb_Abfahrt.ForeColor = Color.Red;
-            }
-            else
-            {
-                cmb_Abfahrt.ForeColor = Color.Black;
-            }
-            if (!v.Stationavailable(cmb_Ankunft.Text))
-            {
-                cmb_Ankunft.Text = "Station nicht gefunden!";
-                cmb_Ankunft.ForeColor = Color.Red;
-            }
-            else
-            {
-                cmb_Ankunft.ForeColor = Color.Black;
-            }
+                }
+            
+         
 
             
             Connections connections;
@@ -128,9 +136,9 @@ namespace myOEV_App
                     lst_Fahrplan.Items.Add(new ListViewItem(items));
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(Convert.ToString(ex));
+                MessageBox.Show("Station nicht gefunden / Netzwerkfehler. Bitte versuchen Sie es erneut. Falls das Problem in ein paar Minuten immer noch besteht holen sie sich hilfe.");
             }
 
             
@@ -167,20 +175,23 @@ namespace myOEV_App
             if (!v.Stationavailable(cmb_Station.Text))
             {
                 cmb_Station.Text = "Station nicht verfügbar!";
-                cmb_Station.ForeColor = Color.Red;
-            }
-            else
-            {
-                cmb_Station.ForeColor = Color.Black;
             }
 
-            Station station = v.Findstation(cmb_Station.Text);
-            string id = station.Id;
 
-            foreach(StationBoard element in transport.GetStationBoard(cmb_Station.Text, id).Entries)
+            try
             {
-                string[] stationboard = { element.To, element.Number, Convert.ToString(element.Stop.Departure).Remove(0, 10) };
-                lst_Station.Items.Add(new ListViewItem(stationboard));
+                Station station = v.Findstation(cmb_Station.Text);
+                string id = station.Id;
+
+                foreach (StationBoard element in transport.GetStationBoard(cmb_Station.Text, id).Entries)
+                {
+                    string[] stationboard = { element.To, element.Number, Convert.ToString(element.Stop.Departure).Remove(0, 10) };
+                    lst_Station.Items.Add(new ListViewItem(stationboard));
+                }
+            }
+            catch(Exception x)
+            {
+                MessageBox.Show("Bitte geben Sie eine gültige Station ein" + Convert.ToString(x));
             }
 
             
@@ -192,10 +203,12 @@ namespace myOEV_App
             var stat = cmb_Ankunft.Text;
             Station station = v.Findstation(cmb_Ankunft.Text);
 
-            if (!v.Stationavailable(cmb_Ankunft.Text))
+            if (!v.Stationavailable(cmb_Station.Text))
             {
-                cmb_Abfahrt.Text = "Station nicht gefunden";
+                cmb_Abfahrt.Text = "Station nicht gefunden!";
+
             }
+           
 
             System.Diagnostics.Process.Start("http://www.google.com/maps/place/" + station.Coordinate.XCoordinate.ToString().Replace(",", ".") + "," + station.Coordinate.YCoordinate.ToString().Replace(",","."));
         }

@@ -34,6 +34,7 @@ namespace myOEV_App
         {
             
             List<Station> stations = this.Searchstation(station);
+
             if(stations.Count > 0)
                 return true;
 
@@ -48,7 +49,11 @@ namespace myOEV_App
         /// <returns></returns>
         public Station Findstation(string name)
         {            
-                return Searchstation(name).First<Station>();         
+            
+                return Searchstation(name).First<Station>();
+            
+
+           
         
          
         }
